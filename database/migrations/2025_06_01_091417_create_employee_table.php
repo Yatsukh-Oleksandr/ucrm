@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone', 32)->nullable();
         });
 
+
     }
 
     /**
