@@ -17,7 +17,13 @@ class DocController extends Controller
     }
 
     public function store(Request $request) {
-        return Doc::create($request->all());
+        $data = $request->all();
+
+        if (!isset($data['docs_hash'])) {
+            $data['docs_hash'] = rand(100000, 999999); // приклад генерації
+        }
+
+        return Doc::create($data);
     }
 
     public function update(Request $request, $id) {
